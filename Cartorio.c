@@ -166,6 +166,7 @@ int main () // Função Principal vinculada ao Menu
 	  printf("\t1 - Registrar Nomes\n\n");
 	  printf("\t2 - Consultar Nomes\n\n");
 	  printf("\t3 - Deletar Nomes\n\n"); 
+	  printf("\t4 - Sair do Sistema\n\n");
 	  printf("Opcão: "); // Fim do Menu
 	  scanf("%d", &opcao); // Armazenando a Escolha do Usuário
 	
@@ -185,6 +186,11 @@ int main () // Função Principal vinculada ao Menu
 		 
 		    case 3:
 		 	Deletar();
+		    break;
+		    
+		    case 4:
+		    printf("\t Obrigado por utilizar o sistema!!!\n");
+		    return 0;
 		    break;
 		 
 		    default:  // Fim da Seleção
