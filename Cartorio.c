@@ -20,7 +20,7 @@ int Registro()
     printf("Digite o CPF a ser cadastrado: ");
     scanf("%s", CPF);
     
-    strcpy(Arquivo, CPF);          // Responsável por Igualar os dados das Variáveis
+    strcpy(Arquivo, CPF);          // Responsável por Igualar os dados das Variáveis nas strings
     
     FILE *file;                   // Cria o Arquivo de Bloco de Notas na Pasta do Sistema
     
@@ -151,58 +151,88 @@ int Deletar()
 
 int main () // Função Principal vinculada ao Menu
 {
+	setlocale (LC_ALL, "Portuguese");
+	
 	int opcao=0; // Definindo Variáveis
-	int laco=1;
+	int laco=1;             // Variável laco que será usada na função "For" usando repetições
+	char Nome[20]="a";              // Nome do login de Administrador
+	char Senha[20];             // Senha do Administrador
+	int comparacao;         // Variável comparação
 	
-	for(laco=1;laco=1;) // Definindo Repetições
+	printf("\t### Cartório da EBAC ###\n\n");               // Boas vindas 
+	printf("\tLogin de Administrador!!!\n\n\tDigite seu Nome e Senha:\n\n ");       // Aviso de login de administrador 
+	printf("Nome: ");            // Digite o Nome
+	scanf("%s",Nome);          // armazenando o Nome
+	printf("\n Senha: ");       // Digite a Senha
+	scanf("%s",Senha);        // armazenando a Senha
+	
+	
+	                                             // "strcmp" Comparação de Strings
+	comparacao = strcmp(Nome,"Joao");    // Comparando usando a variável "comparacao" usando strcmp à variável "Nome" e atribuindo seu nome definida.
+	comparacao = strcmp(Senha,"123");  //  Comparando usando a variável "comparacao" usando strcmp à variável "Senha" e atribuindo sua senha definida.
+	 
+	 
+	 
+	if(comparacao == 0)  // Se comparação for igual a 0 faça...
 	{
+	        system("cls");
 	
-	    system("cls"); // Limpa os texto
-	    
-	  setlocale(LC_ALL, "portuguese"); // Definindo a Linguagem 
+        	for(laco=1;laco=1;) // Definindo Repetições
+    	   {
 	
-	  printf("### Cartório da EBAC ###\n\n"); // Início do Menu
-	  printf("Escolha a opção desejada do Menu:\n\n");
-	  printf("\t1 - Registrar Nomes\n\n");
-	  printf("\t2 - Consultar Nomes\n\n");
-	  printf("\t3 - Deletar Nomes\n\n"); 
-	  printf("\t4 - Sair do Sistema\n\n");
-	  printf("Opcão: "); // Fim do Menu
-	  scanf("%d", &opcao); // Armazenando a Escolha do Usuário
+    	      system("cls"); // Limpa os texto
+    	    
+        	  setlocale(LC_ALL, "portuguese"); // Definindo a Linguagem 
 	
-	  system("cls"); // Limpa os textos ao final do Menu
+        	  printf("### Cartório da EBAC ###\n\n"); // Início do Menu
+      	      printf("Escolha a opção desejada do Menu:\n\n");
+        	  printf("\t1 - Registrar Nomes\n\n");
+        	  printf("\t2 - Consultar Nomes\n\n");
+        	  printf("\t3 - Deletar Nomes\n\n"); 
+        	  printf("\t4 - Sair do Sistema\n\n");
+        	  printf("Opcão: "); // Fim do Menu
+	          scanf("%d", &opcao); // Armazenando a Escolha do Usuário
+	
+        	  system("cls"); // Limpa os textos ao final do Menu
 	  
 	  
 	  
-	  switch(opcao) // Maneira Simplificada de Encadeamento dos If's
-	  {
-    	  	case 1: // Início das Chamadas Das Funções e os casos(case)
-	  		Registro();
-		    break;
+        	switch(opcao) // Maneira Simplificada de Encadeamento dos If's
+	            {
+	       	
+         	  	case 1: // Início das Chamadas Das Funções e os casos(case)
+	     		Registro();
+        	    break;
 		 
-	    	case 2:
-		 	Consulta();
-		    break;
+    	    	case 2:
+    		 	Consulta();
+    		    break;
 		 
-		    case 3:
-		 	Deletar();
-		    break;
+    		    case 3:
+    		 	Deletar();
+    		    break;
 		    
-		    case 4:
-		    printf("\t Obrigado por utilizar o sistema!!!\n");
-		    return 0;
-		    break;
+    		    case 4:
+	    	    printf("\t Obrigado por utilizar o sistema!!!\n");
+    		    return 0;
+    	 	    break;
 		 
-		    default:  // Fim da Seleção
-		 	printf("\t Essa opção não está disponível :( \n\n");
-	        system("pause"); // Pausa do sistema entre as opções
-	        break;
-	  }
+    	  	    default:  // Fim da Seleção
+    		 	printf("\t Opção Indisponível !!!  \n\n");
+    	        system("pause"); // Pausa do sistema entre as opções
+    	        break;
+	            }
 	
-	  } 
+	        } 
 	  
 	  return 0;
-	}
+    }
+      
+      
+      else  	  	  // Se não..
+          printf("\nNome e Senha Incorretos!!!\n\n");      
+          return 0;
+}
 
 
 
