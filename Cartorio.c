@@ -156,8 +156,9 @@ int main () // Função Principal vinculada ao Menu
 	int opcao=0; // Definindo Variáveis
 	int laco=1;             // Variável laco que será usada na função "For" usando repetições
 	char Nome[20]="a";              // Nome do login de Administrador
-	char Senha[20];             // Senha do Administrador
-	int comparacao;         // Variável comparação
+	char Senha[20]="a";             // Senha do Administrador
+	int Comparacao;
+	int Comparacao2;         // Variável comparação
 	
 	printf("\t### Cartório da EBAC ###\n\n");               // Boas vindas 
 	printf("\tLogin de Administrador!!!\n\n\tDigite seu Nome e Senha:\n\n ");       // Aviso de login de administrador 
@@ -166,17 +167,17 @@ int main () // Função Principal vinculada ao Menu
 	printf("\n Senha: ");       // Digite a Senha
 	scanf("%s",Senha);        // armazenando a Senha
 	
-	
-	                                             // "strcmp" Comparação de Strings
-	comparacao = strcmp(Nome,"Joao");    // Comparando usando a variável "comparacao" usando strcmp à variável "Nome" e atribuindo seu nome definida.
-	comparacao = strcmp(Senha,"123");  //  Comparando usando a variável "comparacao" usando strcmp à variável "Senha" e atribuindo sua senha definida.
-	 
-	 
-	 
-	if(comparacao == 0)  // Se comparação for igual a 0 faça...
-	{
+
+	                // "strcmp" Comparação de Strings
+           Comparacao = strcmp(Nome,"Joao");    // Comparando usando a variável "comparacao" usando strcmp à variável "Nome" e atribuindo seu nome definida.
+	       
+	       Comparacao2 = strcmp(Senha,"123");
+	       
+	 if(Comparacao == 0)
+	 if(Comparacao2 == 0)
+	 {
 	        system("cls");
-	
+	        	        			  		
         	for(laco=1;laco=1;) // Definindo Repetições
     	   {
 	
@@ -198,8 +199,7 @@ int main () // Função Principal vinculada ao Menu
 	  
 	  
         	switch(opcao) // Maneira Simplificada de Encadeamento dos If's
-	            {
-	       	
+	            {       	
          	  	case 1: // Início das Chamadas Das Funções e os casos(case)
 	     		Registro();
         	    break;
@@ -222,16 +222,21 @@ int main () // Função Principal vinculada ao Menu
     	        system("pause"); // Pausa do sistema entre as opções
     	        break;
 	            }
-	
-	        } 
-	  
-	  return 0;
-    }
+	    
+		    }
+		  
+		}  
+		   				    
+	             else 
+		          { 	          
+	               printf("\n  Senha incorreta\n\n");    			          
+		          }
+		    
+	             else
+	              {
+	    	       printf("\n Nome incorreto\n\n");	 			      	  
+		          }	    	    	              
       
-      
-      else  	  	  // Se não..
-          printf("\nNome e Senha Incorretos!!!\n\n");      
-          return 0;
 }
 
 
